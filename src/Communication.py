@@ -19,5 +19,5 @@ class Communication :
             self.serialCommunication.write(('1;1;' + command + '\r').encode())
             time.sleep(0.01)
 
-    def close(self) :
-        self.serialCommunication.close()
+    def read(self) :
+        return self.serialCommunication.read_all()

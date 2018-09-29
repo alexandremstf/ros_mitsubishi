@@ -10,7 +10,7 @@ class RobotArm :
 		commands.append('OPEN=NARCUSR')
 		commands.append('CNTLON')
 		commands.append('SRVON')
-		commands.append('EXECJOVRD 70.0')
+		commands.append('EXECJOVRD 30.0')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
