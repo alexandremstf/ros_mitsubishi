@@ -3,7 +3,7 @@ import Communication
 class RobotArm :
 
 	def __init__(self) :
-		self.comn = Communication.Communication('/dev/ttyS0')
+		self.comn = Communication.Communication('/dev/ttyUSB0')
 
 	def init(self) :
 		commands = []
