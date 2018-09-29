@@ -1,6 +1,6 @@
 import serial
 
-serialCom = serial.Serial(port = 'COM1', 
+serialCom = serial.Serial(port = '/dev/ttyS0', 
 baudrate = 9600,
 parity = serial.PARITY_EVEN, 
 stopbits = serial.STOPBITS_ONE, 
