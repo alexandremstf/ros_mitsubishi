@@ -1,10 +1,21 @@
-import Communication
+import time
+import RobotArm
 
-comn = Communication.Communication('/dev/ttyS0')
+robot = RobotArm.RobotArm()
 
-list = []
-list.append('CNTLON')
-list.append('SRVOFF')
-list.append('CNTLOFF')
+robot.init()
+time.sleep(3)
 
-comn.send(list)
+#robot.handOpen()
+#time.sleep(3)
+
+robot.moveToInitialPos()
+time.sleep(3)
+
+#robot.handClose()
+#time.sleep(3)
+
+robot.moveToPos()
+time.sleep(3)
+
+robot.reset()
