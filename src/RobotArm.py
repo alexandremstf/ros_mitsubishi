@@ -54,3 +54,12 @@ class RobotArm :
 		commands.append('EXECHCLOSE 1')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
+
+	def moveToCartesianPos(self) :
+		commands = []
+		pos = '(200.000, 200.000, 200.000, 200.000, 0.000, 0.000)(6,0)' #(X,Y,Z,ANGULO GARRA, ANGULO GARRA , 0)
+		commands.append('CNTLON')
+		commands.append('EXECPCOSIROP = (20.00, 20.00, 400.00, 2.58, 178.02, 0.00)(6,0)')
+		commands.append('EXECMVS PCOSIROP')
+		commands.append('CNTLOFF')
+		self.comn.send(commands)
