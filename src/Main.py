@@ -4,13 +4,12 @@ import RobotArm
 robot = RobotArm.RobotArm()
 
 robot.init()
-time.sleep(3)
+time.sleep(2)
 
 robot.moveToInitialPos()
-time.sleep(3)
+time.sleep(5)
 
-#robot.moveToPos()
-robot.moveToCartesianPos()
-time.sleep(3)
+robot.moveToPos()
+time.sleep(10)
 
 robot.reset()

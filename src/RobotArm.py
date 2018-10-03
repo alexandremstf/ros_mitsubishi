@@ -10,7 +10,6 @@ class RobotArm :
 		commands.append('OPEN=NARCUSR')
 		commands.append('CNTLON')
 		commands.append('SRVON')
-		commands.append('EXECJOVRD 30.0')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
@@ -27,6 +26,7 @@ class RobotArm :
 		commands = []
 		initialPos = '(0.000, 0.000, 0.000, 0.000, 0.000, 0.000)'
 		commands.append('CNTLON')
+		commands.append('EXECJOVRD 80.0')
 		commands.append('EXECJCOSIROP = ' + initialPos)
 		commands.append('EXECMOV JCOSIROP')
 		commands.append('CNTLOFF')
@@ -34,10 +34,11 @@ class RobotArm :
 
 	def moveToPos(self) :
 		commands = []
-		initialPos = '(0.000, 30.000, 30.000, 0.000, 0.000, 0.000)'
+		initialPos = '(250.000, 0.000, 450.000, 0.000, 180.000, 0.000)(6,0)'
 		commands.append('CNTLON')
-		commands.append('EXECJCOSIROP = ' + initialPos)
-		commands.append('EXECMOV JCOSIROP')
+		commands.append('EXECSPD 200.0')
+		commands.append('EXECPCOSIROP = ' + initialPos)
+		commands.append('EXECMVS PCOSIROP')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 

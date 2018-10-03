@@ -17,7 +17,7 @@ class Communication :
     def send(self, list) :
         for command in list :
             self.serialCommunication.write(('1;1;' + command + '\r').encode())
-            time.sleep(0.01)
+            time.sleep(0.1)
 
     def read(self) :
         return self.serialCommunication.read_all()
