@@ -20,4 +20,6 @@ class Communication :
             time.sleep(0.1)
 
     def read(self) :
-        return self.serialCommunication.read_all()
+        readSerial = self.serialCommunication.read_all()
+        time.sleep(0.1)
+        return readSerial
