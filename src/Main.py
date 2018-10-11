@@ -7,9 +7,9 @@ robot = RobotArm.RobotArm()
 robot.init()
 time.sleep(2)
 
-robot.moveJointPosition('(0.000, 0.000, 0.000, 0.000, 0.000, 0.000)')
+robot.moveJointPosition('(0.000, 0.000, 0.000, 0.000, 0.000, 0.000)', '80.0')
 time.sleep(5)
-robot.moveCartesianPosition('(250.000, 0.000, 450.000, 0.000, 180.000, 0.000)(6,0)')
+robot.moveCartesianPosition('(250.000, 0.000, 450.000, 0.000, 180.000, 0.000)(6,0)', '200.0')
 time.sleep(5)
 
 print robot.readJointPosition()

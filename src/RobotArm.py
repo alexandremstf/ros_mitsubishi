@@ -24,19 +24,19 @@ class RobotArm :
 		commands.append('CNTLON')
 		self.comn.send(commands)
 
-	def moveJointPosition(self, position) :
+	def moveJointPosition(self, position, speed) :
 		commands = []
 		commands.append('CNTLON')
-		commands.append('EXECJOVRD 80.0')
+		commands.append('EXECJOVRD ' + speed)
 		commands.append('EXECJCOSIROP = ' + position)
 		commands.append('EXECMOV JCOSIROP')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
-	def moveCartesianPosition(self, position) :
+	def moveCartesianPosition(self, position, speed) :
 		commands = []
 		commands.append('CNTLON')
-		commands.append('EXECSPD 200.0')
+		commands.append('EXECSPD ' + speed)
 		commands.append('EXECPCOSIROP = ' + position)
 		commands.append('EXECMVS PCOSIROP')
 		commands.append('CNTLOFF')
