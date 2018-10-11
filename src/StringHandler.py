@@ -1,8 +1,5 @@
 class StringHandler :
-
-	def __init__(self) :
-		print 'ok'
-
+	
 	def jointPositionStringConstructor(self, j1, j2, j3, j4, j5) :
 		
 		j1String = str(j1)
@@ -11,7 +8,7 @@ class StringHandler :
 		j4String = str(j4)
 		j5String = str(j5)
 
-		jointPosition = '(' + j1String + ', ' + j2String + ', ' + j3String + ', ' + j4String + ', ' + j5String + ')' 
+		jointPosition = '(' + j1String + ', ' + j2String + ', ' + j3String + ', ' + j4String + ', ' + j5String + ', 0.000)' 
 		return jointPosition
 
 

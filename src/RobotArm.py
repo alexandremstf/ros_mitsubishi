@@ -1,10 +1,12 @@
 import Communication
 import time
+import StringHandler
 
 class RobotArm :
 
 	def __init__(self) :
 		self.comn = Communication.Communication('/dev/ttyUSB0')
+		self.stringHandler = StringHandler.StringHandler()
 
 	def init(self) :
 		commands = []
@@ -24,16 +26,22 @@ class RobotArm :
 		commands.append('CNTLON')
 		self.comn.send(commands)
 
-	def moveJointPosition(self, position, speed) :
+	def moveJointPosition(self, j1, j2, j3, j4, j5, speed) :
+		jointPosition = self.stringHandler.jointPositionStringConstructor(j1, j2, j3, j4, j5)
+		speedString = self.stringHandler.speedStringConstructor(speed)
+
 		commands = []
 		commands.append('CNTLON')
-		commands.append('EXECJOVRD ' + speed)
-		commands.append('EXECJCOSIROP = ' + position)
+		commands.append('EXECJOVRD ' + speedString)
+		commands.append('EXECJCOSIROP = ' + jointPosition)
 		commands.append('EXECMOV JCOSIROP')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
-	def moveCartesianPosition(self, position, speed) :
+	def moveCartesianPosition(self, x, y, z, a, b, speed) :
+		cartesianPosition = self.stringHandler.cartesianPositionStringConstructor(x, y, z, a, b)
+		speedString = self.stringHandler.speedStringConstructor(speed)
+
 		commands = []
 		commands.append('CNTLON')
 		commands.append('EXECSPD ' + speed)
