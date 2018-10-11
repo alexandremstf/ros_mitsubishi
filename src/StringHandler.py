@@ -25,3 +25,8 @@ class StringHandler :
 		
 		cartesianPosition = '(' + xString + ', ' + yString + ', ' + zString + ', ' + aString + ', ' + bString + ', 0.000)(6,0)'
 		return cartesianPosition
+
+
+	def speedStringConstructor(self, speed) :
+		speedString = str(speed)
+		return speedString
