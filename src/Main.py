@@ -5,6 +5,7 @@ import StringHandler
 
 stringHandler = StringHandler.StringHandler()
 print stringHandler.jointPositionStringConstructor(50.7, 80.5, 90.4, 31.5, 223.4)
+print stringHandler.cartesianPositionStringConstructor(250.00, 0.000, 450.000, 0.000, 180.000)
 
 #robot = RobotArm.RobotArm()
 
