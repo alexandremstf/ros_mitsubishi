@@ -44,8 +44,8 @@ class RobotArm :
 
 		commands = []
 		commands.append('CNTLON')
-		commands.append('EXECSPD ' + speed)
-		commands.append('EXECPCOSIROP = ' + position)
+		commands.append('EXECSPD ' + speedString)
+		commands.append('EXECPCOSIROP = ' + cartesianPosition)
 		commands.append('EXECMVS PCOSIROP')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
