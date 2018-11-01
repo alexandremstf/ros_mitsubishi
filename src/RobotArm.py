@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import Communication
 import time
 import StringHandler

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 class StringHandler :
 	
 	def jointPositionStringConstructor(self, j1, j2, j3, j4, j5) :
