@@ -20,3 +20,4 @@ print stringHandler.getCartesianPositionByString(robot.readCartesianPosition())
 print stringHandler.getJointPositionByString(robot.readJointPosition())
 
 robot.reset()
+

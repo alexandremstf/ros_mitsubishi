@@ -18,6 +18,8 @@ class RobotArm :
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 		self.comn.read()
+		time.sleep(2)
+
 
 	def reset(self) :
 		commands = []

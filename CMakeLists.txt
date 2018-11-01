@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   CartesianMessage.msg
+  JointMessage.msg
 )
 
 ## Generate services in the 'srv' folder
