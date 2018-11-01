@@ -27,3 +27,35 @@ class StringHandler :
 	def speedStringConstructor(self, speed) :
 		speedString = str(speed)
 		return speedString
+
+	def getJointPositionByString(self, string):
+		#The joint string from robot is like this:
+		#QoKJ1;0.00;J2;21.19;J3;72.78;J4;****;J5;86.03;J6;0.00;;****,****;50;0.00;00000000
+
+		elements = string.split(";")
+		jointPosition = {
+			"J1": float(elements[1]),
+  			"J2": float(elements[3]),
+  			"J3": float(elements[5]),
+  			"J4": float(elements[9]),
+  			"J5": float(elements[11]),
+		}
+		
+		return jointPosition
+
+	def getCartesianPositionByString(self, string):
+		#The cartesian string from robot is like this:
+		#QoKX;250.00;Y;0.00;Z;450.00;A;0.00;B;180.00;;6,0;50;0.00;00000000
+
+		elements = string.split(";")
+		cartesianPosition = {
+			"X": float(elements[1]),
+  			"Y": float(elements[3]),
+  			"Z": float(elements[5]),
+  			"A": float(elements[7]),
+  			"B": float(elements[9]),
+		}
+		
+		return cartesianPosition
+
+

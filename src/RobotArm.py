@@ -38,6 +38,12 @@ class RobotArm :
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
+		#Waits the robot reaches the joint position
+		jointPositionDict = self.stringHandler.getJointPositionByString(self.readJointPosition())
+		while (jointPositionDict["J1"] != j1 or jointPositionDict["J2"] != j2 or jointPositionDict["J3"] != j3 or jointPositionDict["J4"] != j4 or jointPositionDict["J5"] != j5):
+			jointPositionDict = self.stringHandler.getJointPositionByString(self.readJointPosition())
+
+
 	def moveCartesianPosition(self, x, y, z, a, b, speed) :
 		cartesianPosition = self.stringHandler.cartesianPositionStringConstructor(x, y, z, a, b)
 		speedString = self.stringHandler.speedStringConstructor(speed)
@@ -49,6 +55,11 @@ class RobotArm :
 		commands.append('EXECMVS PCOSIROP')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
+
+		#Waits the robot reaches the cartesian position
+		cartesianPositionDict = self.stringHandler.getCartesianPositionByString(self.readCartesianPosition())
+		while (cartesianPositionDict["X"] != x or cartesianPositionDict["Y"] != y or cartesianPositionDict["Z"] != z or cartesianPositionDict["A"] != a or cartesianPositionDict["B"] != b):
+			cartesianPositionDict = self.stringHandler.getCartesianPositionByString(self.readCartesianPosition())
 
 	def handOpen(self) :
 		commands = []
@@ -82,6 +93,6 @@ class RobotArm :
 		commands.append('CNTLOFF')
 
 		self.comn.send(commands)
-		time.sleep(0.5)
+		time.sleep(0.2)
 
 		return self.comn.read()
