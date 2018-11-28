@@ -2,17 +2,17 @@
 
 class StringHandler :
 	
-	def jointPositionStringConstructor(self, j1, j2, j3, j4, j5) :
+	def jointPositionStringConstructor(self, j1, j2, j3, j5, j6) :
 		
 		j1String = str(j1)
 		j2String = str(j2)
 		j3String = str(j3)
-		j4String = str(j4)
 		j5String = str(j5)
+		j6String = str(j6)
 
-		jointPosition = '(' + j1String + ', ' + j2String + ', ' + j3String + ', ' + j4String + ', ' + j5String + ', 0.000)' 
+		jointPosition = '(' + j1String + ', ' + j2String + ', ' + j3String + ', 0.0, ' + j5String + ', ' + j6String + ')' 
+
 		return jointPosition
-
 
 	def cartesianPositionStringConstructor(self, x, y, z, a, b) :
 
@@ -35,13 +35,23 @@ class StringHandler :
 		#QoKJ1;0.00;J2;21.19;J3;72.78;J4;****;J5;86.03;J6;0.00;;****,****;50;0.00;00000000
 
 		elements = string.split(";")
-		jointPosition = {
-			"J1": float(elements[1]),
-  			"J2": float(elements[3]),
-  			"J3": float(elements[5]),
-  			"J4": float(elements[9]),
-  			"J5": float(elements[11]),
-		}
+
+		if (len(elements) == 17) :
+			jointPosition = {
+				"J1": float(elements[1]),
+				"J2": float(elements[3]),
+				"J3": float(elements[5]),
+				"J5": float(elements[9]),
+				"J6": float(elements[11]),
+			}
+		else :
+			jointPosition = {
+				"J1": None,
+				"J2": None,
+				"J3": None,
+				"J5": None,
+				"J6": None,
+			}
 		
 		return jointPosition
 
@@ -50,14 +60,22 @@ class StringHandler :
 		#QoKX;250.00;Y;0.00;Z;450.00;A;0.00;B;180.00;;6,0;50;0.00;00000000
 
 		elements = string.split(";")
-		cartesianPosition = {
-			"X": float(elements[1]),
-  			"Y": float(elements[3]),
-  			"Z": float(elements[5]),
-  			"A": float(elements[7]),
-  			"B": float(elements[9]),
-		}
+
+		if (len(elements) == 15 and not "MITSUBISHI" in string and not "Qe" in string) :
+			cartesianPosition = {
+				"X": float(elements[1]),
+				"Y": float(elements[3]),
+				"Z": float(elements[5]),
+				"A": float(elements[7]),
+				"B": float(elements[9]),
+			}
+		else :
+			cartesianPosition = {
+				"X": None,
+				"Y": None,
+				"Z": None,
+				"A": None,
+				"B": None,
+			}
 		
 		return cartesianPosition
-
-

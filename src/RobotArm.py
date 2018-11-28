@@ -17,9 +17,10 @@ class RobotArm :
 		commands.append('SRVON')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
-		self.comn.read()
-		time.sleep(2)
-
+		
+		# clean trash in serial
+		for i in range(10) :
+			self.comn.read()
 
 	def reset(self) :
 		commands = []
@@ -30,8 +31,8 @@ class RobotArm :
 		commands.append('CNTLON')
 		self.comn.send(commands)
 
-	def moveJointPosition(self, j1, j2, j3, j4, j5, speed) :
-		jointPosition = self.stringHandler.jointPositionStringConstructor(j1, j2, j3, j4, j5)
+	def moveJointPosition(self, j1, j2, j3, j5, j6, speed) :
+		jointPosition = self.stringHandler.jointPositionStringConstructor(j1, j2, j3, j5, j6)
 		speedString = self.stringHandler.speedStringConstructor(speed)
 
 		commands = []
@@ -42,11 +43,10 @@ class RobotArm :
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
-		#Waits the robot reaches the joint position
+		# Waits the robot reaches the joint position
 		jointPositionDict = self.stringHandler.getJointPositionByString(self.readJointPosition())
-		while (jointPositionDict["J1"] != j1 or jointPositionDict["J2"] != j2 or jointPositionDict["J3"] != j3 or jointPositionDict["J4"] != j4 or jointPositionDict["J5"] != j5):
+		while (jointPositionDict["J1"] != j1 or jointPositionDict["J2"] != j2 or jointPositionDict["J3"] != j3 or jointPositionDict["J5"] != j5) :
 			jointPositionDict = self.stringHandler.getJointPositionByString(self.readJointPosition())
-
 
 	def moveCartesianPosition(self, x, y, z, a, b, speed) :
 		cartesianPosition = self.stringHandler.cartesianPositionStringConstructor(x, y, z, a, b)
@@ -56,11 +56,11 @@ class RobotArm :
 		commands.append('CNTLON')
 		commands.append('EXECSPD ' + speedString)
 		commands.append('EXECPCOSIROP = ' + cartesianPosition)
-		commands.append('EXECMVS PCOSIROP')
+		commands.append('EXECMOV PCOSIROP')
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
-		#Waits the robot reaches the cartesian position
+		# Waits the robot reaches the cartesian position
 		cartesianPositionDict = self.stringHandler.getCartesianPositionByString(self.readCartesianPosition())
 		while (cartesianPositionDict["X"] != x or cartesianPositionDict["Y"] != y or cartesianPositionDict["Z"] != z or cartesianPositionDict["A"] != a or cartesianPositionDict["B"] != b):
 			cartesianPositionDict = self.stringHandler.getCartesianPositionByString(self.readCartesianPosition())
@@ -84,9 +84,7 @@ class RobotArm :
 		commands.append('CNTLON')
 		commands.append('JPOSF')
 		commands.append('CNTLOFF')
-
 		self.comn.send(commands)
-		time.sleep(0.2)
 
 		return self.comn.read()
 
@@ -95,8 +93,6 @@ class RobotArm :
 		commands.append('CNTLON')
 		commands.append('PPOSF')
 		commands.append('CNTLOFF')
-
 		self.comn.send(commands)
-		time.sleep(0.2)
 
 		return self.comn.read()

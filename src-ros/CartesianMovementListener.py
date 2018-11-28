@@ -12,15 +12,20 @@ from ros_mitsubishi.msg import CartesianMessage
 def callback(data):
     rospy.loginfo(" I heard %s", data)
     
-    robot.init()
+    print "antes"
+    print data
     robot.moveCartesianPosition(data.x, data.y, data.z, data.a, data.b, data.speed) #x, y, z, a, b, speed
-    robot.reset()
+    print data
 
-    
 def listener():
+    robot.init()
+
     rospy.init_node('listener', anonymous=False)
     rospy.Subscriber("cartesianMovement", CartesianMessage, callback)
     rospy.spin()
+
+    robot.reset()
+
 
 if __name__ == '__main__':
     listener()
