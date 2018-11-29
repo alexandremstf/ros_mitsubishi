@@ -34,24 +34,37 @@ class StringHandler :
 		#The joint string from robot is like this:
 		#QoKJ1;0.00;J2;21.19;J3;72.78;J4;****;J5;86.03;J6;0.00;;****,****;50;0.00;00000000
 
-		elements = string.split(";")
+		jointPosition = { "J1": None, "J2": None, "J3": None, "J5": None, "J6": None }
 
-		if (len(elements) == 17) :
-			jointPosition = {
-				"J1": float(elements[1]),
-				"J2": float(elements[3]),
-				"J3": float(elements[5]),
-				"J5": float(elements[9]),
-				"J6": float(elements[11]),
-			}
-		else :
-			jointPosition = {
-				"J1": None,
-				"J2": None,
-				"J3": None,
-				"J5": None,
-				"J6": None,
-			}
+		split1 = string.split("J1;")
+		if (len(split1) > 1) :
+			split2 = split1[1].split(";")
+			if (len(split2) > 1) :
+				jointPosition["J1"] = float(split2[0])
+
+		split1 = string.split("J2;")
+		if (len(split1) > 1) :
+			split2 = split1[1].split(";")
+			if (len(split2) > 1) :
+				jointPosition["J2"] = float(split2[0])
+		
+		split1 = string.split("J3;")
+		if (len(split1) > 1) :
+			split2 = split1[1].split(";")
+			if (len(split2) > 1) :
+				jointPosition["J3"] = float(split2[0])
+
+		split1 = string.split("J5;")
+		if (len(split1) > 1) :
+			split2 = split1[1].split(";")
+			if (len(split2) > 1) :
+				jointPosition["J5"] = float(split2[0])
+
+		split1 = string.split("J6;")
+		if (len(split1) > 1) :
+			split2 = split1[1].split(";")
+			if (len(split2) > 1) :
+				jointPosition["J6"] = float(split2[0])
 		
 		return jointPosition
 

@@ -9,6 +9,7 @@ class Communication :
         self.serialCommunication = serial.Serial(
             port     = serialPort,
             baudrate = 9600,
+            timeout = 0.2,
             parity   = serial.PARITY_EVEN,
             stopbits = serial.STOPBITS_ONE,
             bytesize = serial.EIGHTBITS)
@@ -19,9 +20,15 @@ class Communication :
     def send(self, list) :
         for command in list :
             self.serialCommunication.write(('1;1;' + command + '\r').encode())
-            time.sleep(0.1)
+            self.serialCommunication.flush
 
     def read(self) :
         readSerial = self.serialCommunication.read_all()
         time.sleep(0.2)
+        return readSerial
+
+    def readUntil(self, character, size) :
+        readSerial = self.serialCommunication.read_until(character, size)
+        print len(readSerial)
+        print readSerial
         return readSerial

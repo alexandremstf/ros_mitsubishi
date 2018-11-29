@@ -12,14 +12,16 @@ from ros_mitsubishi.msg import JointMessage
 def callback(data):
     rospy.loginfo(" I heard %s", data)
     
-    robot.init()
     robot.moveJointPosition(data.j1, data.j2, data.j3, data.j5, data.j6, data.speed) #j1, j2, j3, j5, j6, speed
-    robot.reset()
 
 def listener():
+    robot.init()
+
     rospy.init_node('listener', anonymous=False)
     rospy.Subscriber("jointMovement", JointMessage, callback)
     rospy.spin()
+
+    robot.turnOff()
 
 if __name__ == '__main__':
     listener()

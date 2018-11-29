@@ -24,7 +24,7 @@ def listener():
     rospy.Subscriber("cartesianMovement", CartesianMessage, callback)
     rospy.spin()
 
-    robot.reset()
+    robot.turnOff()
 
 
 if __name__ == '__main__':

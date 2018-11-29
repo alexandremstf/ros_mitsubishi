@@ -22,6 +22,15 @@ class RobotArm :
 		for i in range(10) :
 			self.comn.read()
 
+	def turnOff(self) :
+		commands = []
+		commands.append('CNTLON')
+		commands.append('RSTALRM')
+		commands.append('SRVOFF')
+		commands.append('STATE')
+		commands.append('CNTLOFF')
+		self.comn.send(commands)
+
 	def reset(self) :
 		commands = []
 		commands.append('CNTLOFF')
@@ -86,7 +95,7 @@ class RobotArm :
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
-		return self.comn.read()
+		return self.comn.readUntil('\n', 100)
 
 	def readCartesianPosition(self) :
 		commands = []
@@ -95,4 +104,4 @@ class RobotArm :
 		commands.append('CNTLOFF')
 		self.comn.send(commands)
 
-		return self.comn.read()
+		return self.comn.readUntil('\n', 65)
