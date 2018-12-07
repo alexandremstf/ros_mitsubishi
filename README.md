@@ -2,19 +2,21 @@
 ROS communnication with robot Mitsubish Melfa RV-2AJ 
 
 
-### Comandos de utilização do pacote ros_mitsubishi
+### Commands to use ros_mitsubishi package
 
---- Comando para executar movimentação das juntas: 
+
+
+- Commands to perform joint movement:
 ```
 rosrun ros_mitsubishi JointMovementListener.py
 ``` 
 
-- Comando para executar movimentação cartesiana
+- Commands to perform cartesian movement:
 ```
 rosrun ros_mitsubishi CartesianMovementListener.py
 ```
 
-- Comando para executar pacote do kinect xbox 360
+- Commands to execute kinect xbox 360 package:
 ```
 roslaunch freenect_launch freenect.launch
 ```
