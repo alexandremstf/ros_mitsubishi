@@ -20,7 +20,7 @@ class RobotArm :
 		
 		# clean trash in serial
 		for i in range(10) :
-			self.comn.read()
+			self.comn.readAll()
 
 	def turnOff(self) :
 		commands = []
@@ -55,6 +55,7 @@ class RobotArm :
 		# Waits the robot reaches the joint position
 		jointPositionDict = self.stringHandler.getJointPositionByString(self.readJointPosition())
 		while (jointPositionDict["J1"] != j1 or jointPositionDict["J2"] != j2 or jointPositionDict["J3"] != j3 or jointPositionDict["J5"] != j5) :
+			time.sleep(0.5)
 			jointPositionDict = self.stringHandler.getJointPositionByString(self.readJointPosition())
 
 	def moveCartesianPosition(self, x, y, z, a, b, speed) :
@@ -72,6 +73,7 @@ class RobotArm :
 		# Waits the robot reaches the cartesian position
 		cartesianPositionDict = self.stringHandler.getCartesianPositionByString(self.readCartesianPosition())
 		while (cartesianPositionDict["X"] != x or cartesianPositionDict["Y"] != y or cartesianPositionDict["Z"] != z or cartesianPositionDict["A"] != a or cartesianPositionDict["B"] != b):
+			time.sleep(0.5)
 			cartesianPositionDict = self.stringHandler.getCartesianPositionByString(self.readCartesianPosition())
 
 	def handOpen(self) :

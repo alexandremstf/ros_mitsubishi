@@ -19,7 +19,6 @@ robot.moveJointPosition(0.000, 0.000, 0.000, 0.000, 0.000, 60.0) #j1, j2, j3, j5
 #robot.moveCartesianPosition(250.000, 0.000, 450.000, 0.000, 180.000, 200.0) #x, y, z, a, b, speed
 
 #stringHandler = StringHandler.StringHandler()
-#print "oi"
 #print stringHandler.getJointPositionByString(robot.readJointPosition())
 #print stringHandler.getCartesianPositionByString(robot.readCartesianPosition())
 
