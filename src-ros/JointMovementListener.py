@@ -15,6 +15,7 @@ def callback(data):
     rospy.loginfo(" I heard %s", data)
     
     robot.moveJointPosition(data.j1, data.j2, data.j3, data.j5, data.j6, data.speed) #j1, j2, j3, j5, j6, speed
+    print data
 
 def listener():
     robot.init()

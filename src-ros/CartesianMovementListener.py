@@ -14,8 +14,6 @@ from ros_mitsubishi.msg import CartesianMessage
 def callback(data):
     rospy.loginfo(" I heard %s", data)
     
-    print "antes"
-    print data
     robot.moveCartesianPosition(data.x, data.y, data.z, data.a, data.b, data.speed) #x, y, z, a, b, speed
     print data
 
