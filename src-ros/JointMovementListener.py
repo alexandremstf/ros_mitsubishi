@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import sys
-sys.path.insert(0, '/home/alexandre/catkin_ws/src/ros_mitsubishi/src')
+sys.path.insert(0, '/home/paulo/catkin_ws/src/ros_mitsubishi/src')
 
 import RobotArm
 robot = RobotArm.RobotArm()

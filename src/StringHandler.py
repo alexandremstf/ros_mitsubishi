@@ -1,6 +1,17 @@
 #!/usr/bin/env python
 
 class StringHandler :
+
+	def getSpecificPositionByCoordinate(self, string, coordinate):
+		position = None
+
+		split1 = string.split(coordinate + ";")
+		if (len(split1) > 1) :
+			split2 = split1[1].split(";")
+			if (len(split2) > 1) :
+				position = float(split2[0])
+
+		return position
 	
 	def jointPositionStringConstructor(self, j1, j2, j3, j5, j6) :
 		
@@ -34,61 +45,27 @@ class StringHandler :
 		#The joint string from robot is like this:
 		#QoKJ1;0.00;J2;21.19;J3;72.78;J4;****;J5;86.03;J6;0.00;;****,****;50;0.00;00000000
 
-		jointPosition = { "J1": None, "J2": None, "J3": None, "J5": None, "J6": None }
+		jointPosition = { 
+			"J1": self.getSpecificPositionByCoordinate(string, "J1"), 
+			"J2": self.getSpecificPositionByCoordinate(string, "J2"), 
+			"J3": self.getSpecificPositionByCoordinate(string, "J3"), 
+			"J5": self.getSpecificPositionByCoordinate(string, "J5"), 
+			"J6": self.getSpecificPositionByCoordinate(string, "J6") 
+		}
 
-		split1 = string.split("J1;")
-		if (len(split1) > 1) :
-			split2 = split1[1].split(";")
-			if (len(split2) > 1) :
-				jointPosition["J1"] = float(split2[0])
-
-		split1 = string.split("J2;")
-		if (len(split1) > 1) :
-			split2 = split1[1].split(";")
-			if (len(split2) > 1) :
-				jointPosition["J2"] = float(split2[0])
-		
-		split1 = string.split("J3;")
-		if (len(split1) > 1) :
-			split2 = split1[1].split(";")
-			if (len(split2) > 1) :
-				jointPosition["J3"] = float(split2[0])
-
-		split1 = string.split("J5;")
-		if (len(split1) > 1) :
-			split2 = split1[1].split(";")
-			if (len(split2) > 1) :
-				jointPosition["J5"] = float(split2[0])
-
-		split1 = string.split("J6;")
-		if (len(split1) > 1) :
-			split2 = split1[1].split(";")
-			if (len(split2) > 1) :
-				jointPosition["J6"] = float(split2[0])
-		
 		return jointPosition
 
 	def getCartesianPositionByString(self, string):
 		#The cartesian string from robot is like this:
 		#QoKX;250.00;Y;0.00;Z;450.00;A;0.00;B;180.00;;6,0;50;0.00;00000000
 
-		elements = string.split(";")
+		cartesianPosition = {
+			"X": self.getSpecificPositionByCoordinate(string, "X"),
+			"Y": self.getSpecificPositionByCoordinate(string, "Y"),
+			"Z": self.getSpecificPositionByCoordinate(string, "Z"),
+			"A": self.getSpecificPositionByCoordinate(string, "A"),
+			"B": self.getSpecificPositionByCoordinate(string, "B"),
+		}
 
-		if (len(elements) == 15 and not "MITSUBISHI" in string and not "Qe" in string) :
-			cartesianPosition = {
-				"X": float(elements[1]),
-				"Y": float(elements[3]),
-				"Z": float(elements[5]),
-				"A": float(elements[7]),
-				"B": float(elements[9]),
-			}
-		else :
-			cartesianPosition = {
-				"X": None,
-				"Y": None,
-				"Z": None,
-				"A": None,
-				"B": None,
-			}
-		
 		return cartesianPosition
+
