@@ -1,6 +1,12 @@
 # ROS - Mitsubish Robotic Arm
 ROS communnication with robot Mitsubish Melfa RV-2AJ 
 
+Clone the project to the src folder in catkin workspace and compile, like commands bellow: 
+```
+git clone https://github.com/alexandremstf/ros_mitsubishi.git
+cd ~/catkin_ws
+catkin_make
+```
 
 ### Commands to use ros_mitsubishi package
 
