@@ -19,7 +19,6 @@ def listener():
 
     rospy.init_node('talker', anonymous=False)
     print stringHandler.getCartesianPositionByString(robot.readCartesianPosition())
-    rospy.spin()
 
     robot.turnOff()
 
