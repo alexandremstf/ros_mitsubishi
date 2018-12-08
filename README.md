@@ -3,6 +3,14 @@ ROS communnication with robot Mitsubish Melfa RV-2AJ
 
 #### Install ros package:
 
+Install dependencies:
+```
+sudo apt install ros-kinetic-cv-bridge
+sudo apt install ros-kinetic-freenect-camera 
+sudo apt install ros-kinetic-freenect-stack 
+sudo apt install ros-kinetic-freenect-launch
+```
+
 Clone the project to the src folder in catkin workspace and compile, like commands bellow: 
 ```
 git clone https://github.com/alexandremstf/ros_mitsubishi.git
