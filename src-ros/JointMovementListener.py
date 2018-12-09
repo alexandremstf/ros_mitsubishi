@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-path = os.getcwd() + '/src/ros_mitsubishi/src'
+path = os.getcwd() + '/catkin_ws/src/ros_mitsubishi/src'
 
 import sys
 sys.path.insert(0, path)
@@ -20,8 +20,8 @@ def callback(data):
 def listener():
     robot.init()
 
-    rospy.init_node('listener', anonymous=False)
-    rospy.Subscriber("jointMovement", JointMessage, callback)
+    rospy.init_node('listenerJoint', anonymous=False)
+    rospy.Subscriber("jointMovement", JointMessage, callback, queue_size=1000)
     rospy.spin()
 
     robot.turnOff()
