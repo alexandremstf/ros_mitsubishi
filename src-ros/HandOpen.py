@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-path = os.getcwd() + '/catkin_ws/src/ros_mitsubishi/src'
+path = os.getcwd() + '/src/ros_mitsubishi/src'
 
 import sys
 sys.path.insert(0, path)
