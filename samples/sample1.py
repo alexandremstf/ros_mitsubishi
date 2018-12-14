@@ -12,21 +12,11 @@ def talker():
 	pub = rospy.Publisher('cartesianMovement', CartesianMessage, queue_size=1000)
 	rospy.init_node('sample1', anonymous=True)
 
-	cartesian = CartesianMessage(215.000, -180.000, 350.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, -180.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, -130.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, -130.000, 350.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, -130.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
 	cartesian = CartesianMessage(215.000, -80.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
 	pub.publish(cartesian)
 	cartesian = CartesianMessage(215.000, -80.000, 325.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
 	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, -55.000, 325.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
+	cartesian = CartesianMessage(215.000, -30.000, 325.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
 	pub.publish(cartesian)
 	cartesian = CartesianMessage(215.000, -80.000, 325.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
 	pub.publish(cartesian)
@@ -44,25 +34,11 @@ def talker():
 	pub.publish(cartesian)
 	cartesian = CartesianMessage(215.000, 20.000, 350.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
 	pub.publish(cartesian)
+	cartesian = CartesianMessage(215.000, 45.000, 325.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
+	pub.publish(cartesian)
 	cartesian = CartesianMessage(215.000, 70.000, 350.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
 	pub.publish(cartesian)
 	cartesian = CartesianMessage(215.000, 70.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, 20.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, 70.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, 120.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, 120.000, 325.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, 170.000, 325.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, 170.000, 350.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, 120.000, 350.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
-	pub.publish(cartesian)
-	cartesian = CartesianMessage(215.000, 120.000, 300.000, 90.000, 180.000, 100.0) #x, y, z, a, b, speed
 	pub.publish(cartesian)
 	
 
